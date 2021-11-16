@@ -1,0 +1,50 @@
+.stack-pane-container{
+    -fx-background-color: #181b1f;
+}
+.anchor-body-content{
+    -fx-background-color: #0f2a57;
+}
+.header-pane{
+    -fx-background-color: black;
+}
+.switch-button{
+    -fx-background-color: #181b1f;
+    -fx-text-fill: white;
+}
+
+.switch-button:hover{
+    -fx-background-color: black;
+}
+.switch-button:pressed{
+    -fx-background-color: #bec3cc;
+}
+.content-pane{
+    -fx-background-color: #bacae3;
+}
+.text-field{
+    -fx-background-color: none;
+    -fx-border-color: top right bottom left;
+    -fx-border-color: transparent transparent #537ec2 transparent;
+    -fx-text-alignment: left;
+
+}
+.text-field:focused{
+    -fx-background-color: #b6becc;
+    -fx-border-color: top right bottom left;
+    -fx-border-color: transparent transparent #164aa6 transparent;
+}
+.content-button{
+    -fx-background-color: none;
+    -fx-border-color: #537ec2;
+    -fx-border-radius: 10;
+}
+.content-button:hover{
+    -fx-background-color: #b6becc;
+    -fx-font-size: 19;
+}
+.content-button:pressed{
+    -fx-background-color: #6e737a;
+}
+.table-view .column-header {
+    -fx-background-color: #6094db;
+}

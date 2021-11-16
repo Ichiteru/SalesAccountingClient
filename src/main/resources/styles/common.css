@@ -1,0 +1,21 @@
+.anchor-pane{
+    -fx-background-color: #0f2a57;
+}
+.login{
+    -fx-border-width: 3px;
+    -fx-border-color:  #fcfcfc;
+    -fx-border-radius: 5;
+    -fx-background-color: black;
+    -fx-background-radius: 7;
+}
+back-line-pane{
+    -fx-background-color: red;
+}
+.text-field{
+    -fx-border-width: 2;
+    -fx-background-color: #0f2a57;
+    -fx-text-fill: white;
+}
+.button:hover{
+    -fx-background-color: #e89033;
+}
