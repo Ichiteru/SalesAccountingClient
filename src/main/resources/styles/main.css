@@ -48,3 +48,10 @@
 .table-view .column-header {
     -fx-background-color: #6094db;
 }
+.combo-box{
+    -fx-background-color: none;
+    -fx-border-color: top right bottom left;
+    -fx-border-color: transparent transparent #537ec2 transparent;
+    -fx-text-alignment: left;
+    -fx-font-size: 15;
+}

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class EmptyFieldValidationService {
 
     public boolean isEmpty(TextField textField){
-        if (textField.getText() == "")
+        if (textField.getText().equals(""))
             return true;
         return false;
     }
