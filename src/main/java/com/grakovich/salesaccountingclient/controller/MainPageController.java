@@ -351,10 +351,11 @@ public class MainPageController extends Controller{
     private void refreshUsersTable() {
         if (getMyUser().getRole().equals(Role.USER)){
             alertService.showAlert(AlertService.AlertType.NO_ACCESS_USER);
+        } else {
+            userRepo.init();
+            tableUsers.setItems(userRepo.getUserDataProd());
+            tableUsers.refresh();
         }
-        userRepo.init();
-        tableUsers.setItems(userRepo.getUserDataProd());
-        tableUsers.refresh();
     }
 
     public void setClientTableRowEventListener(){
