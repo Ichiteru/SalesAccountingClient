@@ -88,6 +88,63 @@
                         </TextField>
                      </children>
                   </Pane>
+                  <Pane fx:id="paneSuppliers" prefHeight="200.0" prefWidth="200.0" styleClass="content-pane">
+                     <children>
+                        <TableView fx:id="tableSuppliers" layoutX="17.0" layoutY="72.0" prefHeight="209.0" prefWidth="639.0">
+                          <columns>
+                            <TableColumn fx:id="colSupplierID" prefWidth="117.60003662109375" text="Номер" />
+                            <TableColumn fx:id="colSupplierName" minWidth="0.0" prefWidth="541.7999877929688" text="Название поставщика" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="tfSupplierName" layoutX="170.0" layoutY="17.0" prefHeight="27.0" prefWidth="146.0" promptText="Введите имя">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="18.0" layoutY="24.0" prefHeight="48.0" prefWidth="146.0" text="Имя поставщика:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="337.0" layoutY="13.0" mnemonicParsing="false" onAction="#addSupplier" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Добавить">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="510.0" layoutY="13.0" mnemonicParsing="false" onAction="#deleteSupplier" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Удалить">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Button>
+                        <Line endX="583.3999633789062" endY="0.199981689453125" layoutX="91.0" layoutY="301.0" startX="-100.0" stroke="#5581cd" strokeWidth="2.0" />
+                        <TableView fx:id="tableProductTypes" layoutX="18.0" layoutY="379.0" prefHeight="209.0" prefWidth="639.0">
+                           <columns>
+                              <TableColumn fx:id="colProductTypeID" prefWidth="117.60003662109375" text="Номер" />
+                              <TableColumn fx:id="colProductTypeName" minWidth="0.0" prefWidth="541.7999877929688" text="Тип мебели" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="18.0" layoutY="330.0" prefHeight="48.0" prefWidth="146.0" text="Тип товара:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfProductTypeName" layoutX="123.0" layoutY="323.0" prefHeight="40.0" prefWidth="193.0" promptText="Введите тип">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="337.0" layoutY="319.0" mnemonicParsing="false" onAction="#addProductType" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Добавить">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="510.0" layoutY="319.0" mnemonicParsing="false" onAction="#deleteProductType" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Удалить">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
                   <Pane fx:id="paneProducts" prefHeight="200.0" prefWidth="200.0" styleClass="content-pane">
                      <children>
                         <AnchorPane prefHeight="241.0" prefWidth="674.0">
@@ -167,57 +224,99 @@
                            </font>
                         </TextField>
                      </children></Pane>
-                  <Pane fx:id="paneSuppliers" prefHeight="200.0" prefWidth="200.0" styleClass="content-pane">
+                  <Pane fx:id="paneOrder" prefHeight="200.0" prefWidth="200.0" styleClass="content-pane">
                      <children>
-                        <TableView fx:id="tableSuppliers" layoutX="17.0" layoutY="72.0" prefHeight="209.0" prefWidth="639.0">
+                        <TableView fx:id="tableOrders" layoutX="14.0" layoutY="221.0" prefHeight="312.0" prefWidth="647.0">
                           <columns>
-                            <TableColumn fx:id="colSupplierID" prefWidth="117.60003662109375" text="C1" />
-                            <TableColumn fx:id="colSupplierName" minWidth="0.0" prefWidth="541.7999877929688" text="C2" />
+                            <TableColumn fx:id="colOrderID" prefWidth="75.0" text="Номер" />
+                            <TableColumn fx:id="colOrderClient" prefWidth="137.60003662109375" text="Клиент" />
+                              <TableColumn fx:id="colOrderProduct" prefWidth="121.5999755859375" text="Товар" />
+                              <TableColumn fx:id="colProductOrderAmount" prefWidth="122.39996337890625" text="Количество" />
+                              <TableColumn fx:id="colProductOrderPrice" prefWidth="84.0" text="Стоимость" />
+                              <TableColumn fx:id="colOrderDealer" prefWidth="106.4000244140625" text="Продавец" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="tfSupplierName" layoutX="170.0" layoutY="17.0" prefHeight="27.0" prefWidth="146.0" promptText="Введите имя">
+                        <ComboBox fx:id="cbProductToOrder" layoutX="152.0" layoutY="87.0" prefHeight="33.0" prefWidth="193.0" promptText="Товар" />
+                        <ComboBox fx:id="cbClientToOrder" layoutX="152.0" layoutY="23.0" prefHeight="33.0" prefWidth="193.0" promptText="Клиент" />
+                        <TextField fx:id="tfProductToOrderAmount" layoutX="152.0" layoutY="151.0" prefHeight="33.0" prefWidth="193.0" promptText="Количество">
                            <font>
-                              <Font size="17.0" />
+                              <Font size="16.0" />
                            </font>
                         </TextField>
-                        <Label layoutX="18.0" layoutY="24.0" prefHeight="48.0" prefWidth="146.0" text="Имя поставщика:">
+                        <Label layoutX="19.0" layoutY="30.0" text="Заказчик:">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <Button layoutX="337.0" layoutY="13.0" mnemonicParsing="false" onAction="#addSupplier" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Добавить">
+                        <Label layoutX="19.0" layoutY="94.0" text="Товар:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="22.0" layoutY="164.0" text="Количество:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="412.0" layoutY="146.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="48.0" prefWidth="244.0" styleClass="content-button" text="Добавить">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Button>
-                        <Button layoutX="510.0" layoutY="13.0" mnemonicParsing="false" onAction="#deleteSupplier" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Удалить">
+                        <TextField fx:id="tfOrderSearch" layoutX="14.0" layoutY="548.0" prefHeight="40.0" prefWidth="647.0" promptText="Поиск">
                            <font>
                               <Font size="17.0" />
                            </font>
-                        </Button>
-                        <Line endX="583.3999633789062" endY="0.199981689453125" layoutX="91.0" layoutY="301.0" startX="-100.0" stroke="#5581cd" strokeWidth="2.0" />
-                        <TableView fx:id="tableProductTypes" layoutX="18.0" layoutY="379.0" prefHeight="209.0" prefWidth="639.0">
-                           <columns>
-                              <TableColumn fx:id="colProductTypeID" prefWidth="117.60003662109375" text="C1" />
-                              <TableColumn fx:id="colProductTypeName" minWidth="0.0" prefWidth="541.7999877929688" text="C2" />
-                           </columns>
+                        </TextField>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneUsers" prefHeight="200.0" prefWidth="200.0" styleClass="content-pane">
+                     <children>
+                        <TableView fx:id="tableUsers" layoutX="14.0" layoutY="301.0" prefHeight="291.0" prefWidth="647.0">
+                          <columns>
+                            <TableColumn fx:id="colUserID" prefWidth="75.0" text="Номер" />
+                            <TableColumn fx:id="colUserLogin" prefWidth="197.5999755859375" text="Логин" />
+                              <TableColumn fx:id="colUserPassword" prefWidth="206.40008544921875" text="Пароль" />
+                              <TableColumn fx:id="colUserRole" prefWidth="167.99993896484375" text="Роль" />
+                          </columns>
                         </TableView>
-                        <Label layoutX="18.0" layoutY="330.0" prefHeight="48.0" prefWidth="146.0" text="Тип товара:">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="tfProductTypeName" layoutX="123.0" layoutY="323.0" prefHeight="40.0" prefWidth="193.0" promptText="Введите тип">
+                        <TextField fx:id="tfUserLogin" layoutX="180.0" layoutY="14.0" prefHeight="28.0" prefWidth="193.0" promptText="Логин">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </TextField>
-                        <Button layoutX="337.0" layoutY="319.0" mnemonicParsing="false" onAction="#addProductType" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Добавить">
+                        <TextField fx:id="tfUserPassword" layoutX="180.0" layoutY="98.0" prefHeight="28.0" prefWidth="193.0" promptText="Пароль">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="cbUserRole" layoutX="180.0" layoutY="185.0" prefHeight="40.0" prefWidth="193.0" promptText="Роль" />
+                        <Label layoutX="24.0" layoutY="34.0" text="Логин:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="118.0" text="Пароль:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="205.0" text="Роль:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="442.0" layoutY="23.0" mnemonicParsing="false" onAction="#addUser" prefHeight="48.0" prefWidth="182.0" styleClass="content-button" text="Добавить">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Button>
-                        <Button layoutX="510.0" layoutY="319.0" mnemonicParsing="false" onAction="#deleteProductType" prefHeight="48.0" prefWidth="146.0" styleClass="content-button" text="Удалить">
+                        <Button layoutX="442.0" layoutY="194.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="48.0" prefWidth="182.0" styleClass="content-button" text="Удалить">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="442.0" layoutY="107.0" mnemonicParsing="false" onAction="#editUser" prefHeight="48.0" prefWidth="182.0" styleClass="content-button" text="Редактировать">
                            <font>
                               <Font size="17.0" />
                            </font>
